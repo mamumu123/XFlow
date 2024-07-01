@@ -1,4 +1,13 @@
-import type { Node, Edge, Cell, Graph, Options, Rectangle, CellView } from '@antv/x6';
+import type {
+  Node,
+  Edge,
+  Cell,
+  Graph,
+  Options,
+  Rectangle,
+  CellView,
+  Markup,
+} from '@antv/x6';
 import type { Scroller } from '@antv/x6-plugin-scroller';
 import type { Selection } from '@antv/x6-plugin-selection';
 
@@ -16,6 +25,12 @@ export interface EdgeOptions extends Edge.Metadata {
 
 export type GraphModel = { nodes: NodeOptions[]; edges: EdgeOptions[] };
 
+export interface OnEdgeLabelRenderedArgs {
+  edge: Edge;
+  label: Edge.Label;
+  container: Element;
+  selectors: Markup.Selectors;
+}
 export interface GraphOptions {
   // graph
   className?: string;
@@ -38,7 +53,9 @@ export interface GraphOptions {
   // node & edge
   connectionEdgeOptions?: Partial<EdgeOptions>;
   onPortRendered?: (args: Options.OnPortRenderedArgs) => void;
-  onEdgeLabelRendered?: (args: Options.OnEdgeLabelRenderedArgs) => void;
+  onEdgeLabelRendered?: (
+    args: Options.OnEdgeLabelRenderedArgs,
+  ) => undefined | ((args: OnEdgeLabelRenderedArgs) => void);
 
   // cell
   createCellView?: (
