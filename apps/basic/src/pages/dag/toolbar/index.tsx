@@ -45,7 +45,7 @@ const Toolbar = () => {
     }
   });
 
-  const handleExcute = () => {
+  const handleExecute = () => {
     if (graph) {
       nodes.forEach((node: Node | NodeOptions, index: number) => {
         const edges = graph.getOutgoingEdges(node as Node);
