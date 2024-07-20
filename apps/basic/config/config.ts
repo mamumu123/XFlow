@@ -5,7 +5,7 @@ import { routes } from './routes';
 export default defineConfig({
   routes,
   npmClient: 'pnpm',
-  https: {},
+  https: false,
   svgr: {},
   title: 'XFlow Basic',
   favicons: ['/favicon.ico'],

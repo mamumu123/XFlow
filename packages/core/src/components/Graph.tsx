@@ -107,6 +107,10 @@ const XFlowGraph = (props: GraphOptions) => {
             const cell = view.cell;
             return cell.prop('draggable') !== false;
           },
+          edgeLabelMovable: (view) => {
+            const cell = view.cell;
+            return cell.prop('labelDraggable') === true;
+          },
         };
       }
     }

@@ -47,7 +47,7 @@ export function apply(target: any, patchItem: any): any {
 
   Object.keys(patchItem).forEach((k) => {
     if (!targetResult.hasOwnProperty(k)) targetResult[k] = patchItem[k]; //This ensure the key exists and TS can't throw a wobbly over an undefined key
-    if (patchItem[k] === null) {
+    if (patchItem[k] === null || patchItem[k] === undefined) {
       delete targetResult[k];
     } else if (targetResult[k] !== null && targetResult[k] !== undefined) {
       targetResult[k] = apply(targetResult[k], patchItem[k]);

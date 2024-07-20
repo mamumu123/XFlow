@@ -20,6 +20,7 @@ export interface NodeOptions extends Node.Metadata {
 export interface EdgeOptions extends Edge.Metadata {
   selected?: boolean;
   draggable?: boolean;
+  labelDraggable?: boolean;
   animated?: boolean;
 }
 
