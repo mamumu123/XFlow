@@ -201,13 +201,12 @@ const XFlowState: FC<
   });
 
   // Remove cells for internal operations
-  useGraphEvent('cell:removed', ({ cell, options }) => {
-    if (!options[INNER_CALL]) {
-      if (cell.isNode()) {
-        removeNodes([cell.id], { silent: true });
-      } else if (cell.isEdge()) {
-        removeEdges([cell.id], { silent: true });
-      }
+  useGraphEvent('cell:removed', ({ cell }) => {
+    // no need to check INNER_CALL here
+    if (cell.isNode()) {
+      removeNodes([cell.id], { silent: true });
+    } else if (cell.isEdge()) {
+      removeEdges([cell.id], { silent: true });
     }
   });
 
