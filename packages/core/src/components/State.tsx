@@ -174,7 +174,9 @@ const XFlowState: FC<
           break;
       }
     });
-    clearChangeList();
+    setTimeout(() => {
+      clearChangeList();
+    });
   };
 
   useEffect(() => {
