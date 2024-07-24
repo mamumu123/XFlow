@@ -219,6 +219,7 @@ const XFlowState: FC<
       ({ cell, key, current, options }: EventArgs['cell:change:*']) => {
         if (!options[INNER_CALL] && graph) {
           if (cell.isNode()) {
+            console.log('cell:change:*', cell.id, key, current);
             updateNode(cell.id, preprocess(key, current, graph), { silent: true });
           } else if (cell.isEdge()) {
             updateEdge(cell.id, { [key]: current }, { silent: true });
@@ -226,6 +227,7 @@ const XFlowState: FC<
         }
       },
       100,
+      { leading: true },
     ),
   );
 
